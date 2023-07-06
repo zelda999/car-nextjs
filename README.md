@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Car NextJS 13
 
-## Getting Started
+A car showcase application using Next.js 13
 
-First, run the development server:
+### Setup
+
+Create a Next.js 13 project using,
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npx create-next-app@latest
+```
+- What is your project named? **_carhub_**
+- Would you like to add TypeScript with this project? **_Yes_**
+- Would you like to use ESLint with this project? **_No_**
+- Would you like to use Tailwind CSS with this project? **_Yes_**
+- Would you like to use the `src/ directory` with this project? **_No_**
+- What import alias would you like configured? **_@\*_**
+
+### Packages
+
+We're using the [headlessui](https://headlessui.com/) to create combobox and dropdowns. To download the package, 
+```bash
+npm install @headlessui/react
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### APIs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We're using two APIs:
+1. Rapid API
+   - Doc Link - [Cars API by API Ninjas](https://rapidapi.com/apininjas/api/cars-by-api-ninjas)
+3. Imagin Studio
+   - Sign up Link - [Imagin SignUp](https://www.imagin.studio/subscriptions/pricing)
+   - Doc Link - [Imagin Docs](https://docs.imagin.studio/)
+     From the Menu, you can select ["CDN Data Points"](https://docs.imagin.studio/cdnDatapoints) to see all the params the API accepts.
+   
+**⚠️ Issue with Imagin - It doesn't seem to allow creating an account using normal email address. For it to work, it has to be a business account. I tried [TempMail](https://temp-mail.org/en/) and it works. But no normal gmail accounts are working.**   
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Things to know
 
-## Learn More
+To enable the functionality of dynamic images, we need to inform Next.js explicitly that we anticipate receiving dynamic image URLs from a particular source. This can be achieved by adjusting the configuration of Next.js as follows:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```javascript
+const nextConfig = {
+  images: {
+    domains: ["cdn.imagin.studio"],
+  },
+};
+```
