@@ -46,3 +46,11 @@ const nextConfig = {
   },
 };
 ```
+
+### Setup ENV
+
+```env
+NEXT_PUBLIC_RAPID_API_URL=<RAPID_API_URL> // Cars By Ninja-API
+NEXT_PUBLIC_RAPID_API_HOST=<RAPID_API_HOST> // Cars By Ninja-API
+NEXT_PUBLIC_RAPID_API_KEY=<RAPID_API_KEY> // Cars By Ninja-API
+```
